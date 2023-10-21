@@ -1,0 +1,34 @@
+<section id="detailsPage">
+  <div id="detailsInfo">
+    <h1>Name: {{catalog.name}}</h1>
+    <div class="info"><img src="{{catalog.image}}" /></div>
+
+    <div class="info">
+      <h3>Type: {{catalog.type}}</h3>
+      <h3>Year of Production: {{catalog.production}}</h3>
+      <h3>Years of Exploitation: {{catalog.exploitation}}</h3>
+      <h3>Damages: {{catalog.damages}}</h3>
+      <h3>Description: {{catalog.description}}</h3>
+      <h2>Price: {{catalog.price}}</h2>
+    </div>
+
+    <!--If there is user logged in-->
+    {{#if isAuthenticated}}
+    <div class="buttons">
+
+      {{#if isOwner}}
+        <!--If user is owner-->
+        <a href="#" class="buy-btn">Buy</a>
+
+      {{else}}
+        <!--If user is not owner of the toy post-->
+        <a href="/catalog/{{catalog._id}}/edit" class="edit-btn">Edit</a>
+        <a href="/catalog/{{catalog._id}}/delete" class="delete-btn">Delete</a>
+      {{/if}}
+      {{/if}}
+
+      <!--If user is not the owner and is bought this toy-->
+      <p><span class="buy">Thank You For Your Purchase</span></p>
+    </div>
+  </div>
+</section>
